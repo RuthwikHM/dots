@@ -81,7 +81,7 @@ font-2 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular
 font-3 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
 
 
-modules-left = i3
+modules-left = i3 xwindow
 modules-center = date
 modules-right = alsa memory battery
 
@@ -222,7 +222,6 @@ format-full-prefix-foreground = ${colors.foreground}
 format-full-underline = ${self.format-charging-underline}
 
 [module/xwindow]
-;https://github.com/jaagr/polybar/wiki/Module:-xwindow
 type = internal/xwindow
 
 ; Available tokens:
@@ -231,8 +230,7 @@ type = internal/xwindow
 label = %title%
 label-maxlen = 30
 
-format-prefix = "  "
-format-prefix-underline = ${colors.primary}
+format-prefix = " "
 format-underline = ${colors.primary}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
