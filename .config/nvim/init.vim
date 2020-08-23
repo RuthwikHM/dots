@@ -19,9 +19,9 @@ call plug#end()
 if(has("termguicolors"))
     set termguicolors
 endif
-" let g:dracula_italic = 1
-let g:gruvbox_contrast_dark="hard"
-let g:gruvbox_italic=1
+let g:dracula_italic = 1
+" let g:gruvbox_contrast_dark="hard"
+" let g:gruvbox_italic=1
 " let g:nord_uniform_diff_background = 1
 " let g:nord_italic = 1
 " let g:nord_italic_comments = 1
@@ -92,7 +92,7 @@ noremap <leader>gf :diffget LO<CR>
 " nnoremap R :%s///g<Left><Left>
 
 " Remap leader to space
-let mapleader="\<Space>"
+let mapleader=" "
 
 " Nerd Commenter remaps for change in leader
 map <leader>ct <plug>NERDCommenterToggle<CR>
@@ -123,10 +123,10 @@ map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
 
 " Easy switching between panes
-map <A-h> <C-w>h
-map <A-j> <C-w>j
-map <A-k> <C-w>k
-map <A-l> <C-w>l
+map <silent><leader>h :wincmd h
+map <silent><leader>j :wincmd j
+map <silent><leader>k :wincmd k
+map <silent><leader>l :wincmd l
 
 " Map jk to escape in insert mode
 inoremap jk <Esc>
