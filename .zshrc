@@ -1,4 +1,5 @@
 # If you come from bash you might have to change your $PATH.
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/jre"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export EDITOR="/usr/bin/nvim"
 # Path to your oh-my-zsh installation.
@@ -67,7 +68,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages)
+plugins=(git colored-man-pages vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,3 +101,54 @@ alias ..="cd .."
 alias .="cd ."
 alias zshconfig="vim ~/.zshrc"
 alias dots='/usr/bin/git --git-dir=$HOME/dots --work-tree=$HOME'
+bindkey -v
+
+KEYTIMEOUT=1
+
+vim_ins_mode="%{$fg[green]%}[INS]%{$reset_color%}"
+vim_cmd_mode="%{$fg[blue]%}[CMD]%{$reset_color%}"
+vim_mode=$vim_ins_mode
+
+function zle-keymap-select {
+  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+
+function zle-line-finish {
+  vim_mode=$vim_ins_mode
+}
+zle -N zle-line-finish
+
+# Fix a bug when you C-c in CMD mode and you'd be prompted with CMD mode indicator, while in fact you would be in INS mode
+# Fixed by catching SIGINT (C-c), set vim_mode to INS and then repropagate the SIGINT, so if anything else depends on it, we will not break it
+# Thanks Ron! (see comments)
+function TRAPINT() {
+  vim_mode=$vim_ins_mode
+  return $(( 128 + $1 ))
+}
+
+RPROMPT+='${vim_mode}'
+
+# # Change cursor shape for different vi modes.
+# function zle-keymap-select {
+#   if [[ ${KEYMAP} == vicmd ]] ||
+#      [[ $1 = 'block' ]]; then
+#     echo -ne '\e[1 q'
+#
+#   elif [[ ${KEYMAP} == main ]] ||
+#        [[ ${KEYMAP} == viins ]] ||
+#        [[ ${KEYMAP} = '' ]] ||
+#        [[ $1 = 'beam' ]]; then
+#     echo -ne '\e[5 q'
+#   fi
+# }
+# zle -N zle-keymap-select
+#
+# # Use beam shape cursor on startup.
+# echo -ne '\e[5 q'
+#
+# # Use beam shape cursor for each new prompt.
+# preexec() {
+#    echo -ne '\e[5 q'
+# }

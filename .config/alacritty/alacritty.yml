@@ -230,7 +230,7 @@ colors:
     cyan:    '#9aedfe'
     white:   '#e6e6e6'
 
- # Colors (Nord)
+#  # Colors (Nord)
 # colors:
 #    # Default colors
 #    primary:
@@ -258,7 +258,7 @@ colors:
 #      magenta: '#B48EAD'
 #      cyan:    '#8FBCBB'
 #      white:   '#ECEFF4'
-
+#
   # Indexed Colors
   #
   # The indexed colors include all colors from 16 to 256.
@@ -299,7 +299,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 1.0
+background_opacity: 1.0
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"

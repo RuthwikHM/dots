@@ -1,19 +1,32 @@
 call plug#begin('~/.config/nvim/plugged')
+" Git Wrapper
+Plug 'tpope/vim-fugitive'
+" Status bar
+Plug 'vim-airline/vim-airline'
+Plug 'jiangmiao/auto-pairs'
+" Handle commenting and file explorer
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+" Fancy icons in nerdtree
+Plug 'ryanoasis/vim-devicons'
+" Better syntax highlighting
+Plug 'sheerun/vim-polyglot'
+
+Plug 'tpope/vim-surround'
+" List all tags in buffer
+Plug 'majutsushi/tagbar'
+" Fuzzy file finder
+Plug 'junegunn/fzf.vim'
+" Autocomplete engine with lsp support
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Visualise the undo tree
+Plug 'mbbill/undotree'
+
+" Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
-Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mbbill/undotree'
+
 call plug#end()
 
 if(has("termguicolors"))
@@ -55,6 +68,9 @@ set shiftwidth=4 " spaces to use when indenting
 " Turn on syntax highlighting
 syntax on
 
+" Set min pane height to 0
+set wmh=0
+
 " Enable line numbers
 set number relativenumber
 
@@ -65,12 +81,15 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritepre * %s/\n\+\%$//e
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+" autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost init.vim source %
 
 " Custom shortcuts
+
+" Remap leader to space
+let mapleader="\<Space>"
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
@@ -90,9 +109,6 @@ noremap <leader>gf :diffget LO<CR>
 
 " Replace all is aliased to R.
 " nnoremap R :%s///g<Left><Left>
-
-" Remap leader to space
-let mapleader=" "
 
 " Nerd Commenter remaps for change in leader
 map <leader>ct <plug>NERDCommenterToggle<CR>
@@ -119,15 +135,14 @@ noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize -3<CR>
 
 " Change 2 split windows from vert to horiz or horiz to vert
-map <Leader>th <C-w>t<C-w>H
-map <Leader>tk <C-w>t<C-w>K
+noremap <Leader>th <C-w>t<C-w>H
+noremap <Leader>tk <C-w>t<C-w>K
 
 " Easy switching between panes
-map <silent><leader>h :wincmd h
-map <silent><leader>j :wincmd j
-map <silent><leader>k :wincmd k
-map <silent><leader>l :wincmd l
-
+nnoremap <A-h> :wincmd h<CR>
+nnoremap <A-j> :wincmd j<CR>
+nnoremap <A-k> :wincmd k<CR>
+nnoremap <A-l> :wincmd l<CR>
 " Map jk to escape in insert mode
 inoremap jk <Esc>
 
