@@ -3,7 +3,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 " Status bar
 Plug 'vim-airline/vim-airline'
-Plug 'jiangmiao/auto-pairs'
+" Auto complete matching brackets,quotes.
+Plug 'KaraMCC/vim-gemini'
 " Handle commenting and file explorer
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -72,7 +73,7 @@ syntax on
 set wmh=0
 
 " Enable line numbers
-set number relativenumber
+set relativenumber
 
 " Custom hooks
 
@@ -167,7 +168,6 @@ nnoremap k gk
 set splitbelow splitright
 
 """Airline
-let g:airline_theme = 'dracula'
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#coc#enabled = 1
