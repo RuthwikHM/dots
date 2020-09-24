@@ -2,9 +2,7 @@
 
 # Terminate already running bar instances
 killall -q polybar
-# If all your bars have ipc enabled, you can also use 
+# If all your bars have ipc enabled, you can also use
 # polybar-msg cmd quit
 
-# Launch bar1 and bar2
-polybar -c ~/.config/polybar/config example
-
+polybar -c ~/.config/polybar/config i3bar

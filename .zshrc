@@ -1,7 +1,18 @@
 # If you come from bash you might have to change your $PATH.
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/jre"
+# export HADOOP_HOME=hadoop/hadoop-3.2.1
+# export HADOOP_INSTALL=$HADOOP_HOME
+# export HADOOP_MAPRED_HOME=$HADOOP_HOME
+# export HADOOP_COMMON_HOME=$HADOOP_HOME
+# export HADOOP_HDFS_HOME=$HADOOP_HOME
+# export YARN_HOME=$HADOOP_HOME
+# export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+# export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+# export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export EDITOR="/usr/bin/nvim"
+export BROWSER="/usr/bin/brave"
+export DEFAULT_USER="$(whoami)"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ruthwik/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
@@ -68,7 +79,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages vi-mode)
+plugins=(git colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,6 +112,8 @@ alias ..="cd .."
 alias .="cd ."
 alias zshconfig="vim ~/.zshrc"
 alias dots='/usr/bin/git --git-dir=$HOME/dots --work-tree=$HOME'
+alias cls="clear"
+# Enable vi mode
 bindkey -v
 
 KEYTIMEOUT=1
@@ -129,26 +142,3 @@ function TRAPINT() {
 }
 
 RPROMPT+='${vim_mode}'
-
-# # Change cursor shape for different vi modes.
-# function zle-keymap-select {
-#   if [[ ${KEYMAP} == vicmd ]] ||
-#      [[ $1 = 'block' ]]; then
-#     echo -ne '\e[1 q'
-#
-#   elif [[ ${KEYMAP} == main ]] ||
-#        [[ ${KEYMAP} == viins ]] ||
-#        [[ ${KEYMAP} = '' ]] ||
-#        [[ $1 = 'beam' ]]; then
-#     echo -ne '\e[5 q'
-#   fi
-# }
-# zle -N zle-keymap-select
-#
-# # Use beam shape cursor on startup.
-# echo -ne '\e[5 q'
-#
-# # Use beam shape cursor for each new prompt.
-# preexec() {
-#    echo -ne '\e[5 q'
-# }

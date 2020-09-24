@@ -1,10 +1,12 @@
 call plug#begin('~/.config/nvim/plugged')
 " Git Wrapper
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 " Status bar
 Plug 'vim-airline/vim-airline'
+
 " Auto complete matching brackets,quotes.
-Plug 'KaraMCC/vim-gemini'
+Plug 'jiangmiao/auto-pairs'
 " Handle commenting and file explorer
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -24,22 +26,19 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mbbill/undotree'
 
 " Colorschemes
-Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
+Plug 'gruvbox-community/gruvbox'
 Plug 'dracula/vim'
-
 call plug#end()
 
 if(has("termguicolors"))
     set termguicolors
 endif
-let g:dracula_italic = 1
-" let g:gruvbox_contrast_dark="hard"
-" let g:gruvbox_italic=1
-" let g:nord_uniform_diff_background = 1
-" let g:nord_italic = 1
-" let g:nord_italic_comments = 1
-colorscheme dracula
+
+" let g:dracula_italic = 1
+let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_italic=1
+colorscheme gruvbox
+set noshowmode
 
 filetype plugin on
 
@@ -73,7 +72,11 @@ syntax on
 set wmh=0
 
 " Enable line numbers
-set relativenumber
+set relativenumber number
+
+" Fzf conf
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
 
 " Custom hooks
 
@@ -108,9 +111,6 @@ noremap <leader>gj :diffget RE<CR>
 " local branch on left
 noremap <leader>gf :diffget LO<CR>
 
-" Replace all is aliased to R.
-" nnoremap R :%s///g<Left><Left>
-
 " Nerd Commenter remaps for change in leader
 map <leader>ct <plug>NERDCommenterToggle<CR>
 
@@ -140,10 +140,10 @@ noremap <Leader>th <C-w>t<C-w>H
 noremap <Leader>tk <C-w>t<C-w>K
 
 " Easy switching between panes
-nnoremap <A-h> :wincmd h<CR>
-nnoremap <A-j> :wincmd j<CR>
-nnoremap <A-k> :wincmd k<CR>
-nnoremap <A-l> :wincmd l<CR>
+noremap <A-h> :wincmd h<CR>
+noremap <A-j> :wincmd j<CR>
+noremap <A-k> :wincmd k<CR>
+noremap <A-l> :wincmd l<CR>
 " Map jk to escape in insert mode
 inoremap jk <Esc>
 
@@ -198,8 +198,8 @@ let g:airline#extensions#coc#enabled = 1
 " let g:airline_symbols.branch = ''
 " let g:airline_symbols.readonly = ''
 " let g:airline_symbols.linenr = ''
-"
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#fugitiveline#enabled = 1
 
 " Nerd Commenter stuff
 " Add spaces after comment delimiters by default
@@ -239,24 +239,24 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
+    " Recently vim can merge signcolumn and number column into one
+    set signcolumn=number
 else
-  set signcolumn=yes
+    set signcolumn=yes
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
@@ -266,9 +266,9 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " position. Coc only does snippet and additional edit on confirm.
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
 if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -286,11 +286,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -304,11 +304,11 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder.
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.

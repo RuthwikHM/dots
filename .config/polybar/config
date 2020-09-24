@@ -51,7 +51,59 @@ alert=${colors.nord11}
 background-alt = #4e4e4e
 foreground-alt = #4e4e4e
 
-[bar/example]
+[bar/xmonadbar]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 19
+;offset-x = 1%
+;offset-y = 1%
+radius = 3.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = FuraCode Nerd Font Mono:style=Regular:size=9
+font-1 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
+font-2 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular
+font-3 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
+
+
+modules-left = i3 xwindow
+modules-center = date
+modules-right = alsa memory battery
+
+tray-position = right
+tray-padding = 2
+tray-background = ${colors.background}
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/i3bar]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 19

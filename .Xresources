@@ -6,58 +6,133 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background:        #222D31
-XTerm*foreground:        #d8d8d8
-XTerm*pointerColor:      #1ABB9B
-XTerm*faceName:          Fixed
-XTerm*faceSize:          11
-XTerm*reverseVideo:      on
-XTerm*selectToClipboard: true
+! XTerm*background:        #222D31
+! XTerm*foreground:        #d8d8d8
+! XTerm*pointerColor:      #1ABB9B
+! XTerm*faceName:          Fixed
+! XTerm*faceSize:          11
+! XTerm*reverseVideo:      on
+! XTerm*selectToClipboard: true
+!
+! st config
+! Nord Palette
+! #define nord0 #2E3440
+! #define nord1 #3B4252
+! #define nord2 #434C5E
+! #define nord3 #4C566A
+! #define nord4 #D8DEE9
+! #define nord5 #E5E9F0
+! #define nord6 #ECEFF4
+! #define nord7 #8FBCBB
+! #define nord8 #88C0D0
+! #define nord9 #81A1C1
+! #define nord10 #5E81AC
+! #define nord11 #BF616A
+! #define nord12 #D08770
+! #define nord13 #EBCB8B
+! #define nord14 #A3BE8C
+! #define nord15 #B48EAD
+!
+! st.foreground:   nord4
+! st.background:   nord0
+! st.cursorColor:  nord4
+! st.fading: 35
+! st.fadeColor: nord3
+!
+! st.color0: nord1
+! st.color1: nord11
+! st.color2: nord14
+! st.color3: nord13
+! st.color4: nord9
+! st.color5: nord15
+! st.color6: nord8
+! st.color7: nord5
+! st.color8: nord3
+! st.color9: nord11
+! st.color10: nord14
+! st.color11: nord13
+! st.color12: nord9
+! st.color13: nord15
+! st.color14: nord7
+! st.color15: nord6
 
-*background:                      #222D31
-*foreground:                      #d8d8d8
-*fading:                          8
-*fadeColor:                       black
-*cursorColor:                     #1ABB9B
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
+! Dracula Xresources palette
+st.foreground: #F8F8F2
+st.background: #282A36
+st.color0:     #000000
+st.color8:     #4D4D4D
+st.color1:     #FF5555
+st.color9:     #FF6E67
+st.color2:     #50FA7B
+st.color10:    #5AF78E
+st.color3:     #F1FA8C
+st.color11:    #F4F99D
+st.color4:     #BD93F9
+st.color12:    #CAA9FA
+st.color5:     #FF79C6
+st.color13:    #FF92D0
+st.color6:     #8BE9FD
+st.color14:    #9AEDFE
+st.color7:     #BFBFBF
+st.color15:    #E6E6E6
 
-!! black dark/light
-*color0:                          #222D31
-*color8:                          #585858
+! Gruvbox Palette
+! ! hard contrast:
+! ! st.background: #1d2021
+! st.background: #282828
+! ! soft contrast: st.background: #32302f
+! st.foreground: #ebdbb2
+! ! Black + DarkGrey
+! st.color0:  #282828
+! st.color8:  #928374
+! ! DarkRed + Red
+! st.color1:  #cc241d
+! st.color9:  #fb4934
+! ! DarkGreen + Green
+! st.color2:  #98971a
+! st.color10: #b8bb26
+! ! DarkYellow + Yellow
+! st.color3:  #d79921
+! st.color11: #fabd2f
+! ! DarkBlue + Blue
+! st.color4:  #458588
+! st.color12: #83a598
+! ! DarkMagenta + Magenta
+! st.color5:  #b16286
+! st.color13: #d3869b
+! ! DarkCyan + Cyan
+! st.color6:  #689d6a
+! st.color14: #8ec07c
+! ! LightGrey + White
+! st.color7:  #a89984
+! st.color15: #ebdbb2
+st.font:FiraCode Nerd Font Mono:style=Regular:size=11
+st.alpha:1.0
 
-!! red dark/light
-*color1:                          #ab4642
-*color9:                          #ab4642
 
-!! green dark/light
-*color2:                          #7E807E
-*color10:                         #8D8F8D
-
-!! yellow dark/light
-*color3:                          #f7ca88
-*color11:                         #f7ca88
-
-!! blue dark/light
-*color4:                          #7cafc2
-*color12:                         #7cafc2
-
-!! magenta dark/light
-*color5:                          #ba8baf
-*color13:                         #ba8baf
-
-!! cyan dark/light
-*color6:                          #1ABB9B
-*color14:                         #1ABB9B
-
-!! white dark/light
-*color7:                          #d8d8d8
-*color15:                         #f8f8f8
+URxvt.foreground: #F8F8F2
+URxvt.background: #282A36
+URxvt.color0:     #000000
+URxvt.color8:     #4D4D4D
+URxvt.color1:     #FF5555
+URxvt.color9:     #FF6E67
+URxvt.color2:     #50FA7B
+URxvt.color10:    #5AF78E
+URxvt.color3:     #F1FA8C
+URxvt.color11:    #F4F99D
+URxvt.color4:     #BD93F9
+URxvt.color12:    #CAA9FA
+URxvt.color5:     #FF79C6
+URxvt.color13:    #FF92D0
+URxvt.color6:     #8BE9FD
+URxvt.color14:    #9AEDFE
+URxvt.color7:     #BFBFBF
+URxvt.color15:    #E6E6E6
 
 Xcursor.theme: xcursor-breeze-snow
 Xcursor.size:                     0
 
-URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
+URxvt.font:                       9x15,xft:Source Code Pro Black:style=Black,Regular,xft:TerminessTTFNerdFontMono
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
@@ -65,12 +140,9 @@ URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 !! terminus names see end of file!
 
 URxvt.depth:                      32
-URxvt.background:                 [100]#222D31
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-URxvt*background:                 black
-URxvt*foreground:                 grey
 URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines

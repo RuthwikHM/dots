@@ -27,7 +27,7 @@ font xft:Source Code Pro-Regular 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -43,7 +43,7 @@ bindsym $mod+Ctrl+z exec --no-startup-id morc_menu
 ################################################################################################
 
 exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec alacritty -e 'alsamixer'
+bindsym $mod+Ctrl+m exec st -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
@@ -55,13 +55,13 @@ bindsym $mod+Ctrl+m exec alacritty -e 'alsamixer'
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec alacritty -e 'bmenu'
+bindsym $mod+Ctrl+b exec st -e 'bmenu'
 # bindsym $mod+F2 exec firefox --private
 bindsym $mod+F2 exec brave
 # bindsym $mod+F3 exec pcmanfm
-bindsym $mod+F3 exec alacritty -e ranger
+bindsym $mod+F3 exec st -e ranger
 # bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym $mod+M exec alacritty -e 'mocp'
+bindsym $mod+M exec st -e 'mocp'
 bindsym $mod+c exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+c exec --no-startup-id picom -bf --config ~/.config/picom/picom.conf
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -283,18 +283,18 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 
 # Enable location service for redshift
-exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
-exec --no-startup-id redshift-gtk
+# exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+# exec --no-startup-id redshift-gtk
 
-exec --no-startup-id pamac-tray
+# exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 5 -locker blurlock
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
+# exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec_always --no-startup-id ff-theme-util
+# exec_always --no-startup-id fix_xcursor
 # Autostart polybar
 exec --no-startup-id ~/.config/polybar/launch.sh
 
