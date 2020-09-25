@@ -1,14 +1,14 @@
 # If you come from bash you might have to change your $PATH.
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/jre"
-# export HADOOP_HOME=hadoop/hadoop-3.2.1
-# export HADOOP_INSTALL=$HADOOP_HOME
-# export HADOOP_MAPRED_HOME=$HADOOP_HOME
-# export HADOOP_COMMON_HOME=$HADOOP_HOME
-# export HADOOP_HDFS_HOME=$HADOOP_HOME
-# export YARN_HOME=$HADOOP_HOME
-# export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
-# export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
-# export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+export HADOOP_HOME=hadoop/hadoop-3.2.1
+export HADOOP_INSTALL=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export EDITOR="/usr/bin/nvim"
 export BROWSER="/usr/bin/brave"
