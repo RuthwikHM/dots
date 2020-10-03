@@ -63,7 +63,7 @@ set scrolloff=3  " show 3 lines of context around cursor
 set list         " show invisible characters
 
 """ Global Tabs and Spaces configurations
-set expandtab    " use spaces instead of tabs
+" set expandtab    " use spaces instead of tabs
 set tabstop=4    " global tab width
 set shiftwidth=4 " spaces to use when indenting
 

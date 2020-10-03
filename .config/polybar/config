@@ -15,7 +15,6 @@
 ;   The README contains a lot of information
 ;
 ;==========================================================
-
 [colors]
 ; ;background = ${xrdb:color0:#222}
 ; background = #282a36
@@ -178,7 +177,7 @@ label-focused-background = ${colors.background}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 1
 
-; unfocused = Inactive workspace on any monitor
+; unfocused = Inactive worksace on any monitor
 label-unfocused = %name% %icon%
 label-unfocused-padding = 1
 
@@ -300,3 +299,4 @@ margin-top = 3
 margin-bottom = 3
 
 ; vim:ft=dosini
+p
