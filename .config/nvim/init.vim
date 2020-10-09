@@ -27,10 +27,11 @@ Plug 'mbbill/undotree'
 " Colorschemes
 Plug 'gruvbox-community/gruvbox'
 Plug 'dracula/vim'
+
 call plug#end()
 
 if(has("termguicolors"))
-    set termguicolors
+	set termguicolors
 endif
 
 " let g:dracula_italic = 1

@@ -26,81 +26,18 @@
 ; secondary = #50fa7b
 ; alert = #ff5555
 ;
-nord0=#2E3440
-nord1=#3B4252
-nord2=#434C5E
-nord3=#4C566A
-nord4=#D8DEE9
-nord5=#E5E9F0
-nord6=#ECEFF4
-nord7=#8FBCBB
-nord8=#88C0D0
-nord9=#81A1C1
-nord10=#5E81AC
-nord11=#BF616A
-nord12=#D08770
-nord13=#EBCB8B
-nord14=#A3BE8C
-nord15=#B48EAD
-background=${colors.nord0}
-foreground=${colors.nord4}
-primary=${colors.nord14}
-secondary=${colors.nord13}
-alert=${colors.nord11}
+xwin_underline = #8be9fd
+bat_foreground = #bd93f9
+mem_foreground = #ffb86c
+alsa_foreground = #f1fa8c
+dat_foreground = #f1fa8c
+background=#282a36
+foreground=#f8f8f2
+primary=#50fa7b
+secondary=#f1fa8c
+alert=#ff5555
 background-alt = #4e4e4e
 foreground-alt = #4e4e4e
-
-[bar/xmonadbar]
-;monitor = ${env:MONITOR:HDMI-1}
-width = 100%
-height = 19
-;offset-x = 1%
-;offset-y = 1%
-radius = 3.0
-fixed-center = false
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 0
-padding-right = 0
-
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = FuraCode Nerd Font Mono:style=Regular:size=9
-font-1 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
-font-2 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular
-font-3 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
-
-
-modules-left = i3 xwindow
-modules-center = date
-modules-right = alsa memory battery
-
-tray-position = right
-tray-padding = 2
-tray-background = ${colors.background}
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-cursor-click = pointer
-cursor-scroll = ns-resize
 
 [bar/i3bar]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -108,7 +45,7 @@ width = 100%
 height = 19
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 3.0
+radius = 0.0
 fixed-center = false
 
 background = ${colors.background}
@@ -121,7 +58,7 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 0
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
@@ -144,9 +81,6 @@ tray-background = ${colors.background}
 ;wm-restack = i3
 
 ;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
 
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
@@ -165,7 +99,7 @@ wrapping-scroll = false
 ws-icon-0 = "1:Dev;"
 ws-icon-1 = "2:Firefox;"
 ws-icon-2 = "3:Files;"
-; ws-icon-default = 
+ws-icon-default = 
 strip-wsnumbers = true
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -190,17 +124,17 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %name% %icon%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 ; Separator in between workspaces
-; label-separator = |
+label-separator = |
+label-separator-foreground = ${colors.bat_foreground}
 
 [module/memory]
 type = internal/memory
 interval = 3
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.nord8}
+format-foreground = ${colors.mem_foreground}
 label = %mb_used%
 
 [module/date]
@@ -208,14 +142,12 @@ type = internal/date
 interval = 1
 
 date = "%d-%m-%Y"
-date-alt = "%d-%m-%Y"
 
 time = %H:%M:%S
-time-alt = %H:%M:%S
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.secondary}
+format-foreground = ${colors.dat_foreground}
+; format-prefix = 
+format-prefix-foreground = ${colors.dat_foreground}
 
 label = %date% %time%
 
@@ -224,20 +156,20 @@ type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
 label-volume = 
-label-volume-foreground = ${colors.foreground}
+label-volume-foreground = ${colors.alsa_foreground}
 
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground}
+format-muted-prefix = "ﱙ "
+format-muted-foreground = ${colors.alsa_foreground}
 label-muted = sound muted
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-width = 8
+bar-volume-foreground-0 = ${colors.primary}
+bar-volume-foreground-1 = ${colors.primary}
+bar-volume-foreground-2 = ${colors.primary}
+bar-volume-foreground-3 = ${colors.primary}
+bar-volume-foreground-4 = ${colors.primary}
+bar-volume-foreground-5 = ${colors.primary}
+bar-volume-foreground-6 = ${colors.primary}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -253,24 +185,24 @@ battery = BAT0
 adapter = ADP1
 full-at = 100
 
+label-charging-foreground = ${colors.bat_foreground}
+label-discharging-foreground = ${colors.bat_foreground}
+
 format-charging = <label-charging>
-format-charging-underline = ${colors.nord9}
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
 
 format-charging-prefix = " "
-format-charging-prefix-foreground = ${colors.foreground}
+format-charging-prefix-foreground = ${colors.bat_foreground}
 
 animation-discharging-0 = 
 animation-discharging-1 = 
 animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground}
+animation-discharging-foreground = ${colors.bat_foreground}
 animation-discharging-framerate = 750
 
 format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground}
-format-full-underline = ${self.format-charging-underline}
+format-full-prefix-foreground = ${colors.bat_foreground}
 
 [module/xwindow]
 type = internal/xwindow
@@ -279,11 +211,11 @@ type = internal/xwindow
 ;   %title%
 ; Default: %title%
 label = %title%
-label-maxlen = 30
+label-maxlen = 20
 
-format-prefix = " "
-format-underline = ${colors.primary}
-format-foreground = ${colors.foreground}
+format-prefix =
+format-underline = ${colors.xwin_underline}
+format-foreground = ${colors.bat_foreground}
 format-background = ${colors.background}
 
 [settings]
