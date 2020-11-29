@@ -26,6 +26,19 @@
 ; secondary = #50fa7b
 ; alert = #ff5555
 ;
+;Gruvbox
+; xwin_underline = #83a598
+; bat_foreground = #d3869b
+; mem_foreground = #fe8019
+; alsa_foreground = #fabd2f
+; dat_foreground = #fabd2f
+; background=#282828
+; foreground=#ebdbb2
+; primary=#b8bb26
+; secondary=#fabd2f
+; alert=#fb4934
+
+;Dracula
 xwin_underline = #8be9fd
 bat_foreground = #bd93f9
 mem_foreground = #ffb86c
@@ -36,6 +49,7 @@ foreground=#f8f8f2
 primary=#50fa7b
 secondary=#f1fa8c
 alert=#ff5555
+
 background-alt = #4e4e4e
 foreground-alt = #4e4e4e
 

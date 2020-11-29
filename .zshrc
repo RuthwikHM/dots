@@ -1,13 +1,16 @@
 # If you come from bash you might have to change your $PATH.
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/jre"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export HADOOP_HOME=hadoop/hadoop-3.2.1
 export HADOOP_INSTALL=$HADOOP_HOME
 export HADOOP_MAPRED_HOME=$HADOOP_HOME
 export HADOOP_COMMON_HOME=$HADOOP_HOME
 export HADOOP_HDFS_HOME=$HADOOP_HOME
 export YARN_HOME=$HADOOP_HOME
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export SPARK_HOME=spark/spark-3.0.1-bin-hadoop3.2
 export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+export PATH=$PATH:$SPARK_HOME/sbin:$SPARK_HOME/bin
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export EDITOR="/usr/bin/nvim"
@@ -91,11 +94,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 

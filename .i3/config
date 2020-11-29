@@ -61,7 +61,7 @@ bindsym $mod+F2 exec brave
 # bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F3 exec st -e ranger
 # bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym $mod+M exec st -e 'mocp'
+bindsym $mod+M exec st -e 'cmus'
 bindsym $mod+c exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+c exec --no-startup-id picom -bf --config ~/.config/picom/picom.conf
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -334,11 +334,11 @@ exec --no-startup-id ~/.config/polybar/launch.sh
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #e5e9f0  #2e3440 #81a1c1 #a3be8c
-  client.focused_inactive #e5e9f0  #2e3440 #81a1c1 #a3be8c
-  client.unfocused        #e5e9f0  #2e3440 #81a1c1 #a3be8c
-  client.urgent           #e5e9f0  #2e3440 #81a1c1 #a3be8c
-  client.placeholder      #e5e9f0  #2e3440 #81a1c1 #a3be8c
+  client.focused          #f1fa8c  #2e3440 #81a1c1 #a3be8c
+  client.focused_inactive #f1fa8c  #2e3440 #81a1c1 #a3be8c
+  client.unfocused        #f1fa8c  #2e3440 #81a1c1 #a3be8c
+  client.urgent           #f1fa8c  #2e3440 #81a1c1 #a3be8c
+  client.placeholder      #f1fa8c  #2e3440 #81a1c1 #a3be8c
 
   client.background       #2e3440
 

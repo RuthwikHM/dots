@@ -3,7 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 " Status bar
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 " Auto complete matching brackets,quotes.
 Plug 'jiangmiao/auto-pairs'
 " Handle commenting and file explorer
@@ -19,10 +19,14 @@ Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 " Fuzzy file finder
 Plug 'junegunn/fzf.vim'
-" Autocomplete engine with lsp support
+
+" Auto complete engine with lsp support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Visualise the undo tree
 Plug 'mbbill/undotree'
+
+" VSC like debugger
+Plug 'puremourning/vimspector'
 
 " Colorschemes
 Plug 'gruvbox-community/gruvbox'
@@ -34,11 +38,38 @@ if(has("termguicolors"))
 	set termguicolors
 endif
 
-" let g:dracula_italic = 1
-let g:gruvbox_contrast_dark="hard"
-let g:gruvbox_italic=1
-colorscheme gruvbox
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:dracula_italic = 1
+" let g:gruvbox_contrast_dark="hard"
+" let g:gruvbox_italic=1
+colorscheme dracula
 set noshowmode
+" Lightline config
+let g:lightline = {
+  \   'colorscheme': 'dracula',
+  \   'active': {
+  \     'left':[ [ 'mode', 'paste' ],
+  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+  \     ]
+  \   },
+	\   'component': {
+	\     'lineinfo': ' %3l:%-2v',
+	\   },
+  \   'component_function': {
+  \     'gitbranch': 'fugitive#head',
+  \   }
+  \ }
+let g:lightline.separator = {
+	\   'left': '', 'right': ''
+  \}
+let g:lightline.subseparator = {
+	\   'left': '', 'right': ''
+  \}
+let g:lightline.tabline = {
+  \   'left': [ ['tabs'] ],
+  \   'right': [ ['close'] ]
+  \ }
+set showtabline=2  " Show tabline
 
 filetype plugin on
 
@@ -47,7 +78,7 @@ filetype plugin on
 
 " Indents
 set autoindent
-set smartindent
+" set smartindent
 set cindent
 
 """ Search
@@ -122,8 +153,8 @@ map <leader>ct <plug>NERDCommenterToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 
 " Automatically start NERDTree if no file is specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Fzf toggle
 map <C-p> :Files<CR>
@@ -170,40 +201,6 @@ nnoremap k gk
 " Split below current window
 set splitbelow splitright
 
-"""Airline
-
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#coc#enabled = 1
-" Use with urxvt because unicode support is bad.
-" if !exists('g:airline_symbols')
-"     let g:airline_symbols = {}
-" endif
-
-" unicode symbols
-" let g:airline_left_sep = '»'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '«'
-" lt g:airline_right_sep = '◀'
-" let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-" let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
-" let g:airline_symbols.paste = '∥'
-" let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = ''
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = ''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#fugitiveline#enabled = 1
-
 " Nerd Commenter stuff
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -234,7 +231,7 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=4000
+set updatetime=3000
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -246,11 +243,11 @@ set signcolumn=auto
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <C-n>
             \ pumvisible() ? "\<C-n>" :
             \ <SID>check_back_space() ? "\<TAB>" :
             \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -281,7 +278,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> <leader>K :call <SID>show_documentation()<CR>
+nnoremap <silent> <leader>k :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
