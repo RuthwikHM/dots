@@ -27,6 +27,8 @@ myStartupHook = do
 	spawnOnce "picom &"
 	spawnOnce "nm-applet &"
 	spawnOnce "volumeicon &"
+	spawnOnce "clipit"
+	spawnOnce "xfce4-power-manager"
 
 myKeys = [
 			("M-c", spawn "xmonad --recompile")

@@ -1,6 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 " Git Wrapper
 Plug 'tpope/vim-fugitive'
+" Useful mappings
 Plug 'tpope/vim-unimpaired'
 " Status bar
 Plug 'itchyny/lightline.vim'
@@ -8,9 +9,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 " Handle commenting and file explorer
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 " Fancy icons in nerdtree
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 " Better syntax highlighting
 Plug 'sheerun/vim-polyglot'
 
@@ -29,7 +30,7 @@ Plug 'mbbill/undotree'
 Plug 'puremourning/vimspector'
 
 " Colorschemes
-Plug 'gruvbox-community/gruvbox'
+Plug 'morhetz/gruvbox'
 Plug 'dracula/vim'
 
 call plug#end()
@@ -38,37 +39,46 @@ if(has("termguicolors"))
 	set termguicolors
 endif
 
+" Show preview before substitution
+set inccommand=split
+
+" Dont load netrw on startup
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
+
 let g:vimspector_enable_mappings = 'HUMAN'
+
 let g:dracula_italic = 1
+autocmd ColorScheme dracula highlight Comment cterm=italic term=italic
+
 " let g:gruvbox_contrast_dark="hard"
 " let g:gruvbox_italic=1
 colorscheme dracula
 set noshowmode
 " Lightline config
 let g:lightline = {
-  \   'colorscheme': 'dracula',
-  \   'active': {
-  \     'left':[ [ 'mode', 'paste' ],
-  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
-  \     ]
-  \   },
-	\   'component': {
-	\     'lineinfo': ' %3l:%-2v',
-	\   },
-  \   'component_function': {
-  \     'gitbranch': 'fugitive#head',
-  \   }
-  \ }
+			\   'colorscheme': 'dracula',
+			\   'active': {
+			\     'left':[ [ 'mode', 'paste' ],
+			\              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+			\     ]
+			\   },
+			\   'component': {
+			\     'lineinfo': ' %3l:%-2v',
+			\   },
+			\   'component_function': {
+			\     'gitbranch': 'fugitive#head',
+			\   }
+			\ }
 let g:lightline.separator = {
-	\   'left': '', 'right': ''
-  \}
+			\   'left': '', 'right': ''
+			\}
 let g:lightline.subseparator = {
-	\   'left': '', 'right': ''
-  \}
+			\   'left': '', 'right': ''
+			\}
 let g:lightline.tabline = {
-  \   'left': [ ['tabs'] ],
-  \   'right': [ ['close'] ]
-  \ }
+			\   'left': [ ['tabs'] ]
+			\ }
 set showtabline=2  " Show tabline
 
 filetype plugin on
@@ -150,7 +160,7 @@ map <leader>ct <plug>NERDCommenterToggle<CR>
 
 " NerdTree stuff
 " NerdTree Toggle
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
 
 " Automatically start NERDTree if no file is specified
 " autocmd StdinReadPre * let s:std_in=1
@@ -244,14 +254,14 @@ set signcolumn=auto
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <C-n>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
 inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
@@ -261,9 +271,9 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " position. Coc only does snippet and additional edit on confirm.
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
 if exists('*complete_info')
-    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+	inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -281,11 +291,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> <leader>k :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.

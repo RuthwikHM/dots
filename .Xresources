@@ -36,10 +36,10 @@ st.color7:     #BFBFBF
 st.color15:    #E6E6E6
 
 ! Gruvbox Palette
-! ! hard contrast:
-! ! st.background: #1d2021
-! st.background: #282828
-! ! soft contrast: st.background: #32302f
+! hard contrast:
+! st.background: #1d2021
+! ! st.background: #282828
+! ! ! soft contrast: st.background: #32302f
 ! st.foreground: #ebdbb2
 ! ! Black + DarkGrey
 ! st.color0:  #282828
