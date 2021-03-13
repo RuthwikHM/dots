@@ -13,7 +13,9 @@ export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 export PATH=$PATH:$SPARK_HOME/sbin:$SPARK_HOME/bin
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export SUDO_EDITOR="/usr/bin/nvim"
 export EDITOR="/usr/bin/nvim"
+export MANPAGER="nvim -c 'set ft=man' -"
 export BROWSER="/usr/bin/brave"
 export DEFAULT_USER="$(whoami)"
 # Path to your oh-my-zsh installation.
@@ -97,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -106,10 +108,7 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
 alias vim="nvim"
 alias ..="cd .."
 alias .="cd ."

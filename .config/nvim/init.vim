@@ -7,7 +7,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'itchyny/lightline.vim'
 " Auto complete matching brackets,quotes.
 Plug 'jiangmiao/auto-pairs'
-" Handle commenting and file explorer
+" Handle commenting
 Plug 'scrooloose/nerdcommenter'
 " Plug 'scrooloose/nerdtree'
 " Fancy icons in nerdtree
@@ -51,8 +51,8 @@ let g:vimspector_enable_mappings = 'HUMAN'
 let g:dracula_italic = 1
 autocmd ColorScheme dracula highlight Comment cterm=italic term=italic
 
-" let g:gruvbox_contrast_dark="hard"
-" let g:gruvbox_italic=1
+let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_italic=1
 colorscheme dracula
 set noshowmode
 " Lightline config
@@ -88,7 +88,7 @@ filetype plugin on
 
 " Indents
 set autoindent
-" set smartindent
+set smartindent
 set cindent
 
 """ Search
@@ -105,7 +105,7 @@ set scrolloff=3  " show 3 lines of context around cursor
 set list         " show invisible characters
 
 """ Global Tabs and Spaces configurations
-" set expandtab    " use spaces instead of tabs
+set expandtab    " use spaces instead of tabs
 set tabstop=4    " global tab width
 set shiftwidth=4 " spaces to use when indenting
 
