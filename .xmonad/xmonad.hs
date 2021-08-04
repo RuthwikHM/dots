@@ -8,7 +8,7 @@ import System.IO
 
 
 main = do
-    xmproc <- spawnPipe "xmobar"
+    xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc"
     xmonad $ docks def
         { terminal    = myTerminal
         , modMask     = myModMask
@@ -20,7 +20,10 @@ main = do
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
                             { ppOutput = hPutStrLn xmproc
-                            , ppTitle = xmobarColor "green" "" . shorten 50
+                            , ppTitle = xmobarColor "#bd93f9" "" . shorten 50
+                            , ppCurrent = xmobarColor "#50fa7b" "" . wrap "[" "]"
+                            , ppVisible = xmobarColor "#f8f8f2" "" .wrap " | "" | "
+                            , ppSep =  " | "
                             }
         , workspaces = myWorkspaces
         } `additionalKeysP` myKeys
@@ -46,6 +49,6 @@ myStartupHook = do
 
 myKeys = [
 			("M-c", spawn "xmonad --recompile")
-			,("M-Enter", spawn myTerminal)
-		 	,("M-S-r", spawn "xmonad --restart")
+		 	,("M-S-r", spawn "xmonad --restart"),
+            ("M-p", spawn "dmenu_recency"),
 		 ]

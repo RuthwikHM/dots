@@ -13,7 +13,7 @@ Xft.lcdfilter: lcddefault
 ! XTerm*faceSize:          11
 ! XTerm*reverseVideo:      on
 ! XTerm*selectToClipboard: true
-!
+
 ! st config
 ! Dracula Xresources palette
 st.foreground: #F8F8F2
@@ -35,16 +35,16 @@ st.color14:    #9AEDFE
 st.color7:     #BFBFBF
 st.color15:    #E6E6E6
 
-! Gruvbox Palette
-! hard contrast:
+! ! Gruvbox Palette
+! ! hard contrast:
 ! st.background: #1d2021
-! ! st.background: #282828
-! ! ! soft contrast: st.background: #32302f
+! ! ! st.background: #282828
+! ! ! ! soft contrast: st.background: #32302f
 ! st.foreground: #ebdbb2
-! Black + DarkGrey
+! ! Black + DarkGrey
 ! st.color0:  #282828
 ! st.color8:  #928374
-! DarkRed + Red
+! ! DarkRed + Red
 ! st.color1:  #cc241d
 ! st.color9:  #fb4934
 ! ! DarkGreen + Green
@@ -67,7 +67,6 @@ st.color15:    #E6E6E6
 ! st.color15: #ebdbb2
 st.font:FiraCode Nerd Font Mono:style=Medium,Regular:size=11
 st.alpha:1.0
-
 
 URxvt.foreground: #F8F8F2
 URxvt.background: #282A36

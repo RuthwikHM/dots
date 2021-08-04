@@ -1,0 +1,57 @@
+
+Config
+  { font = "xft: Fantasque Sans Mono:style=Regular:size=10:antialias=true"
+  , additionalFonts = ["xft:Font Awesome 5 Free Solid:size=10"]
+  , allDesktops = True
+  , bgColor = "#282a36"
+  , fgColor = "#f8f8f2"
+  , position = Top
+  , sepChar = "%"
+  , alignSep = "}{"
+  , template =
+      " %UnsafeStdinReader% }{ %memory% ╱ %battery% ╱ %time% ╱ %date% "
+  , commands =
+      [   Run
+          Memory
+          [ "-t"
+          , "<fc=#f1fa8c><fn=1></fn></fc> <used> Mb"
+          , "-H"
+          , "75"
+          , "-L"
+          , "30"
+          , "-l"
+          , "#50fa7b"
+          , "-n"
+          , "#f1fa8c"
+          , "-h"
+          , "#ff5555"
+          ]
+          50
+      , Run
+          Battery
+          [ "--template"
+          , "<fc=#50fa7b><fn=1></fn></fc> <acstatus>"
+          , "--Low"
+          , "30"
+          , "--High"
+          , "80"
+          , "--low"
+          , "#ff5555"
+          , "--normal"
+          , "#f1fa8c"
+          , "--high"
+          , "#f8f8f2"
+          , "--"
+          , "-o"
+          , "<left>%"
+          , "-O"
+          , "<left>% <fc=#ffb86c></fc>"
+          , "-i"
+          , "<left>% <fc=#ffb86c></fc>"
+          ]
+          60
+      , Run Date "<fc=#6272a4><fn=1></fn></fc> %a %b %_d" "date" 300
+      , Run Date "<fc=#bd93f9><fn=1></fn></fc> %H:%M" "time" 300
+      , Run UnsafeStdinReader
+      ]
+  }

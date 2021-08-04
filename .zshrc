@@ -1,17 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
-export HADOOP_HOME=hadoop/hadoop-3.2.1
-export HADOOP_INSTALL=$HADOOP_HOME
-export HADOOP_MAPRED_HOME=$HADOOP_HOME
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export YARN_HOME=$HADOOP_HOME
-export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
-export SPARK_HOME=spark/spark-3.0.1-bin-hadoop3.2
-export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
-export PATH=$PATH:$SPARK_HOME/sbin:$SPARK_HOME/bin
-export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+export JAVA_HOME="/usr/lib/jvm/default"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export SUDO_EDITOR="/usr/bin/nvim"
 export EDITOR="/usr/bin/nvim"
@@ -20,6 +8,12 @@ export BROWSER="/usr/bin/brave"
 export DEFAULT_USER="$(whoami)"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ruthwik/.oh-my-zsh"
+
+# Exports for jdtls to work with nvim-lspconfig
+export JAR=$HOME/jdtls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.6.200.v20210416-2027.jar
+export JDTLS_CONFIG=$HOME/jdtls/org.eclipse.jdt.ls.product/target/repository/config_linux
+export WORKSPACE=$HOME/workspace
+export GRADLE_HOME=$HOME/gradle
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -84,7 +78,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
