@@ -38,8 +38,8 @@ opt.wmh = 0
 --Colorscheme
 cmd 'colorscheme dracula'
 --Gruvbox
-g.gruvbox_contrast_dark = 'hard'
-g.gruvbox_italic = 1
+-- g.gruvbox_contrast_dark = 'hard'
+-- g.gruvbox_italic = 1
 
 -- Nerd Commenter stuff
 -- Add spaces after comment delimiters by default

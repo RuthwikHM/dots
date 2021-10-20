@@ -27,7 +27,11 @@ return require('packer').startup(function()
     -- LSP
     use 'neovim/nvim-lspconfig'
     use {'RishabhRD/nvim-lsputils', requires = {'RishabhRD/popfix'}}
-    use 'hrsh7th/nvim-compe'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
     -- Auto complete matching brackets,quotes.
     use 'jiangmiao/auto-pairs'
     -- Handle commenting

@@ -56,11 +56,11 @@ map('n','k','gk',{noremap = true})
 -- map('n','<leader>lg',':Rg<CR>',{noremap = true,silent = true})
 
 -- nvim-compe
-map('i','<C-Space>','compe#complete()',{silent = true,expr = true})
-map('i','<CR>',[[compe#confirm('<CR>')]],{silent = true,expr = true})
-map('i','<C-e>',[[compe#close('<C-e>')]],{silent = true,expr = true})
-map('i','<C-f>',[[compe#scroll({'delta':+4})]],{silent = true,expr = true})
-map('i','<C-d>',[[compe#scroll({'delta':-4})]],{silent = true,expr = true})
+-- map('i','<C-Space>','compe#complete()',{silent = true,expr = true})
+-- map('i','<CR>',[[compe#confirm('<CR>')]],{silent = true,expr = true})
+-- map('i','<C-e>',[[compe#close('<C-e>')]],{silent = true,expr = true})
+-- map('i','<C-f>',[[compe#scroll({'delta':+4})]],{silent = true,expr = true})
+-- map('i','<C-d>',[[compe#scroll({'delta':-4})]],{silent = true,expr = true})
 
 -- Telescope
 -- //TODO

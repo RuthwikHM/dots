@@ -55,7 +55,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 bindsym $mod+F2 exec brave
 # bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F3 exec st -e ranger
-bindsym $mod+F1 exec emacs
+# bindsym $mod+F1 exec emacs
 # bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+M exec st -e 'cmus'
 bindsym $mod+c exec --no-startup-id pkill picom
@@ -140,7 +140,7 @@ bindsym $mod+Ctrl+Left workspace prev
 #
 
 set $ws1 "1:Dev"
-set $ws2 "2:Firefox"
+set $ws2 "2:WWW"
 set $ws3 "3:Files"
 set $ws4 4
 set $ws5 5

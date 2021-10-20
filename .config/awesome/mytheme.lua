@@ -13,10 +13,18 @@ local theme = {}
 
 theme.font          = " Fantasque Sans Mono 10"
 
-theme.bg_normal     = "#282a36"
-theme.bg_focus      = "#6272a4"
-theme.bg_urgent     = "#ff5555"
+-- Dracula
+-- theme.bg_normal     = "#282a36"
+-- theme.bg_focus      = "#6272a4"
+-- theme.bg_urgent     = "#ff5555"
+-- theme.bg_minimize   = "#444444"
+
+-- Gruvbox
+theme.bg_normal     = "#1d2021"
+theme.bg_focus      = "#83a598"
+theme.bg_urgent     = "#fb4934"
 theme.bg_minimize   = "#444444"
+
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#f8f8f2"
@@ -24,7 +32,8 @@ theme.fg_focus      = theme.fg_normal
 theme.fg_urgent     = theme.fg_normal
 theme.fg_minimize   = theme.fg_normal
 
-theme.useless_gap   = dpi(5)
+theme.useless_gap   = dpi(3)
+theme.gap_single_client = false
 theme.border_width  = dpi(1)
 theme.border_normal = theme.bg_normal
 theme.border_focus  = theme.bg_focus

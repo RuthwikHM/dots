@@ -3,17 +3,14 @@ export JAVA_HOME="/usr/lib/jvm/default"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export SUDO_EDITOR="/usr/bin/nvim"
 export EDITOR="/usr/bin/nvim"
-export MANPAGER="nvim -c 'set ft=man' -"
 export BROWSER="/usr/bin/brave"
 export DEFAULT_USER="$(whoami)"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ruthwik/.oh-my-zsh"
 
 # Exports for jdtls to work with nvim-lspconfig
-export JAR=$HOME/jdtls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.6.200.v20210416-2027.jar
-export JDTLS_CONFIG=$HOME/jdtls/org.eclipse.jdt.ls.product/target/repository/config_linux
+export JDTLS_HOME=$HOME/jdtls/org.eclipse.jdt.ls.product/target/repository
 export WORKSPACE=$HOME/workspace
-export GRADLE_HOME=$HOME/gradle
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -40,7 +37,7 @@ ZSH_THEME="agnoster"
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
- export UPDATE_ZSH_DAYS=30
+ # export UPDATE_ZSH_DAYS=30
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -78,7 +75,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
