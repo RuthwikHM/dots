@@ -19,7 +19,7 @@ map('','<leader>gj',':diffget RE<CR>',{noremap = true})
  --local branch on left
 map('','<leader>gf',':diffget LO<CR>',{noremap = true})
  --Nerd Commenter remaps for change in leader
-map('','<leader>ct','<plug>NERDCommenterToggle<CR>')
+-- map('','<leader>ct','<plug>NERDCommenterToggle<CR>')
 
 --Toggle tagbar
 map('n','<C-t>',':TagbarToggle<CR>',{silent = true})
@@ -54,13 +54,6 @@ map('n','k','gk',{noremap = true})
 -- map('n','<leader>p',':Files<CR>',{noremap = true,silent = true})
 -- map('n','<leader>b',':Buffers<CR>',{noremap = true,silent = true})
 -- map('n','<leader>lg',':Rg<CR>',{noremap = true,silent = true})
-
--- nvim-compe
--- map('i','<C-Space>','compe#complete()',{silent = true,expr = true})
--- map('i','<CR>',[[compe#confirm('<CR>')]],{silent = true,expr = true})
--- map('i','<C-e>',[[compe#close('<C-e>')]],{silent = true,expr = true})
--- map('i','<C-f>',[[compe#scroll({'delta':+4})]],{silent = true,expr = true})
--- map('i','<C-d>',[[compe#scroll({'delta':-4})]],{silent = true,expr = true})
 
 -- Telescope
 -- //TODO

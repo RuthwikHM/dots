@@ -15,7 +15,6 @@ cmd([[autocmd InsertEnter * norm zz]])
 -- Highlight yanks
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout = 200}'
 
--- cmd ':TSEnableAll highlight'
 opt.number = true
 opt.relativenumber = true
 opt.splitbelow = true
@@ -38,7 +37,7 @@ opt.wmh = 0
 --Colorscheme
 cmd 'colorscheme dracula'
 --Gruvbox
--- g.gruvbox_contrast_dark = 'hard'
+-- g.gruvbox_contrast_dark = 'soft'
 -- g.gruvbox_italic = 1
 
 -- Nerd Commenter stuff

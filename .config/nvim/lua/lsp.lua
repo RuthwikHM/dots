@@ -1,29 +1,4 @@
 local nvim_lsp = require('lspconfig')
--- local compe = require('compe')
-
--- compe.setup{
---     enabled = true;
---     autocomplete = true;
---     debug = false;
---     min_length = 1;
---     preselect = 'enable';
---     throttle_time = 80;
---     source_timeout = 200;
---     incomplete_delay = 400;
---     max_abbr_width = 100;
---     max_kind_width = 100;
---     max_menu_width = 100;
---     documentation = true;
---
---     source = {
---         path = true;
---         nvim_lsp = true;
---         buffer = true;
---         nvim_lsp = true;
---         nvim_lua = true
---     };
--- }
-
 local cmp = require('cmp')
 cmp.setup({
     snippet = {
@@ -58,6 +33,8 @@ cmp.setup({
         -- { name = 'ultisnips' },
 
         { name = 'buffer' },
+        { name = 'path' },
+        { name = 'nvim_lua' },
     }
 })
 
@@ -104,6 +81,8 @@ local on_attach = function(client, bufnr)
     --Enable completion triggered by <c-x><c-o>
     -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
+     require "lsp_signature".on_attach()
+
     -- Mappings.
     local opts = { noremap=true, silent=true }
 
@@ -129,15 +108,16 @@ local on_attach = function(client, bufnr)
 end
 
 
-nvim_lsp.jdtls.setup{
-    on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
+-- nvim_lsp.jdtls.setup{
+--     on_attach = on_attach,
+--     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- }
 
 nvim_lsp.gopls.setup{
     on_attach = on_attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
+
 -- Better codeactions
 if vim.fn.has('nvim-0.5.1') == 1 then
     vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler

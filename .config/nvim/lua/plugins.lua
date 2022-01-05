@@ -13,7 +13,7 @@ return require('packer').startup(function()
         'glepnir/galaxyline.nvim',
         branch = 'main',
         -- your statusline
-        config = function() require 'evilline' end,
+        config = function() require'evilline' end,
         -- some optional icons
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
@@ -27,20 +27,38 @@ return require('packer').startup(function()
     -- LSP
     use 'neovim/nvim-lspconfig'
     use {'RishabhRD/nvim-lsputils', requires = {'RishabhRD/popfix'}}
+    use 'mfussenegger/nvim-jdtls'
     use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-nvim-lua'
     use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
+    -- Provides function signature hints
+    use {
+        "ray-x/lsp_signature.nvim",
+    }
     -- Auto complete matching brackets,quotes.
     use 'jiangmiao/auto-pairs'
     -- Handle commenting
-    use 'scrooloose/nerdcommenter'
-    use 'tpope/vim-surround'
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+    -- Easy bindings for surrounding text with characters
+    use {
+        "blackCauldron7/surround.nvim",
+        config = function()
+            require"surround".setup {mappings_style = "surround"}
+        end
+    }
     -- List all tags in buffer
     use 'majutsushi/tagbar'
-    -- Fuzzy file finder
-    -- use 'junegunn/fzf.vim'
+    -- Bufferline
+    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     -- Colorschemes
     use {'gruvbox-community/gruvbox', as='gruvbox'}
     use {'dracula/vim', as='dracula'}
