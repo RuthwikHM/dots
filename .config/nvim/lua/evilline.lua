@@ -66,15 +66,15 @@ gls.left[3] = {
     }
 }
 
--- gls.left[4] ={
---   FileIcon = {
---     provider = 'FileIcon',
---     condition = condition.buffer_not_empty,
---     highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
---   },
--- }
+gls.left[4] ={
+  FileIcon = {
+    provider = 'FileIcon',
+    condition = condition.buffer_not_empty,
+    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
+  },
+}
 
-gls.left[4] = {
+gls.left[5] = {
     FileName = {
         provider = 'FileName',
         condition = condition.buffer_not_empty,
@@ -82,7 +82,7 @@ gls.left[4] = {
     }
 }
 
-gls.left[5] = {
+gls.left[6] = {
     LineInfo = {
         provider = 'LineColumn',
         separator = ' ',
@@ -91,7 +91,7 @@ gls.left[5] = {
     },
 }
 
-gls.left[6] = {
+gls.left[7] = {
     PerCent = {
         provider = 'LinePercent',
         separator = ' ',
@@ -100,14 +100,14 @@ gls.left[6] = {
     }
 }
 
-gls.left[7] = {
+gls.left[8] = {
     DiagnosticError = {
         provider = 'DiagnosticError',
         icon = '  ',
         highlight = {colors.red,colors.bg}
     }
 }
-gls.left[8] = {
+gls.left[9] = {
     DiagnosticWarn = {
         provider = 'DiagnosticWarn',
         icon = '  ',
@@ -115,7 +115,7 @@ gls.left[8] = {
     }
 }
 
-gls.left[9] = {
+gls.left[10] = {
     DiagnosticHint = {
         provider = 'DiagnosticHint',
         icon = '  ',
@@ -123,7 +123,7 @@ gls.left[9] = {
     }
 }
 
-gls.left[10] = {
+gls.left[11] = {
     DiagnosticInfo = {
         provider = 'DiagnosticInfo',
         icon = '  ',
@@ -211,7 +211,7 @@ gls.right[5] = {
 
 gls.right[6] = {
     RainbowBlue = {
-        provider = function() return ' ▊' end,
+        provider = function() return '  ▊' end,
         highlight = {colors.blue,colors.bg}
     },
 }
