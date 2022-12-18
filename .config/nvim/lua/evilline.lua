@@ -11,8 +11,8 @@ local colors = {
     orange = '#FFB86C',
     violet = '#BD93F9',
     magenta = '#FF79C6',
-    blue = '#8BE9FD';
-    red = '#FF5555';
+    blue = '#8BE9FD',
+    red = '#FF5555'
 }
 -- -- Gruvbox
 -- local colors = {
@@ -25,8 +25,8 @@ local colors = {
 --     orange = '#FE8019',
 --     violet = '#D3869B',
 --     magenta = '#B16286',
---     blue = '#83A598';
---     red = '#FB4934';
+--     blue = '#83A598',
+--     red = '#FB4934'
 -- }
 
 local condition = require('galaxyline.condition')
@@ -42,7 +42,7 @@ gls.left[1] = {
 gls.left[2] = {
     ViMode = {
         provider = function()
-            -- auto change color according the vim mode
+            local alias = {n = 'NORMAL',i = 'INSERT',c= 'COMMAND',v= 'VISUAL',V= 'VISUAL LINE', [''] = 'VISUAL BLOCK'}
             local mode_color = {n = colors.red, i = colors.green,v=colors.blue,
                 [''] = colors.blue,V=colors.blue,
                 c = colors.magenta,no = colors.red,s = colors.orange,
@@ -52,26 +52,46 @@ gls.left[2] = {
                 rm = colors.cyan, ['r?'] = colors.cyan,
                 ['!']  = colors.red,t = colors.red}
             vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
-            return '  '
+            return alias[vim.fn.mode()]
         end,
         highlight = {colors.red,colors.bg,'bold'},
+        separator=" ",
+        separator_highlight = {colors.fg,colors.bg,'bold'}
     },
 }
+-- gls.left[2] = {
+--     ViMode = {
+--         provider = function()
+--             -- auto change color according the vim mode
+--             local mode_color = {n = colors.red, i = colors.green,v=colors.blue,
+--                 [''] = colors.blue,V=colors.blue,
+--                 c = colors.magenta,no = colors.red,s = colors.orange,
+--                 S=colors.orange,[''] = colors.orange,
+--                 ic = colors.yellow,R = colors.violet,Rv = colors.violet,
+--                 cv = colors.red,ce=colors.red, r = colors.cyan,
+--                 rm = colors.cyan, ['r?'] = colors.cyan,
+--                 ['!']  = colors.red,t = colors.red}
+--             vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
+--             return '  '
+--         end,
+--         highlight = {colors.red,colors.bg,'bold'},
+--     },
+-- }
 
-gls.left[3] = {
-    FileSize = {
-        provider = 'FileSize',
-        condition = condition.buffer_not_empty,
-        highlight = {colors.fg,colors.bg}
-    }
-}
+-- gls.left[3] = {
+--     FileSize = {
+--         provider = 'FileSize',
+--         condition = condition.buffer_not_empty,
+--         highlight = {colors.fg,colors.bg}
+--     }
+-- }
 
 gls.left[4] ={
-  FileIcon = {
-    provider = 'FileIcon',
-    condition = condition.buffer_not_empty,
-    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
-  },
+    FileIcon = {
+        provider = 'FileIcon',
+        condition = condition.buffer_not_empty,
+        highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
+    },
 }
 
 gls.left[5] = {

@@ -25,19 +25,27 @@ return require('packer').startup(function()
     use 'tpope/vim-unimpaired'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     -- LSP
-    use 'neovim/nvim-lspconfig'
-    use {'RishabhRD/nvim-lsputils', requires = {'RishabhRD/popfix'}}
-    use 'mfussenegger/nvim-jdtls'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/vim-vsnip'
-    -- Provides function signature hints
     use {
-        "ray-x/lsp_signature.nvim",
+        'VonHeikemen/lsp-zero.nvim',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
+            {'ray-x/lsp_signature.nvim'},
+
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
+            {'saadparwaiz1/cmp_luasnip'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'hrsh7th/cmp-nvim-lua'},
+
+            -- Snippets
+            {'L3MON4D3/LuaSnip'},
+            {'rafamadriz/friendly-snippets'},
+        }
     }
     -- Auto complete matching brackets,quotes.
     use 'jiangmiao/auto-pairs'
@@ -49,12 +57,16 @@ return require('packer').startup(function()
         end
     }
     -- Easy bindings for surrounding text with characters
-    use {
-        "blackCauldron7/surround.nvim",
+    use({
+        "kylechui/nvim-surround",
         config = function()
-            require"surround".setup {mappings_style = "surround"}
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
         end
-    }
+    })
+    -- Undo tree
+    use 'mbbill/undotree'
     -- List all tags in buffer
     use 'majutsushi/tagbar'
     -- Bufferline

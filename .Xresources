@@ -35,7 +35,7 @@ st.color14:    #9AEDFE
 st.color7:     #BFBFBF
 st.color15:    #E6E6E6
 
-! ! Gruvbox Palette
+! Gruvbox Palette
 ! ! hard contrast:
 ! st.background: #1d2021
 ! ! ! st.background: #282828
@@ -65,7 +65,7 @@ st.color15:    #E6E6E6
 ! ! LightGrey + White
 ! st.color7:  #a89984
 ! st.color15: #ebdbb2
-st.font:FiraCode Nerd Font Mono:style=Medium,Regular:size=11
+st.font:FiraCode Nerd Font Mono:style=Medium,Regular:size=13
 st.alpha:1.0
 
 URxvt.foreground: #F8F8F2

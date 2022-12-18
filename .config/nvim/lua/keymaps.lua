@@ -9,8 +9,6 @@ vim.g.mapleader = ' '
 
 --Clear previous search highlighting
 map('','<C-L>',':nohl<CR>',{noremap = true})
---Toggle undo tree
-map('','<C-U>',':UndotreeToggle<CR>',{noremap = true,silent = true})
 --Open fugitive
 map('','<leader>gs',':Git<CR>',{noremap = true})
  --Easy merge conflict resolution
@@ -18,8 +16,6 @@ map('','<leader>gs',':Git<CR>',{noremap = true})
 map('','<leader>gj',':diffget RE<CR>',{noremap = true})
  --local branch on left
 map('','<leader>gf',':diffget LO<CR>',{noremap = true})
- --Nerd Commenter remaps for change in leader
--- map('','<leader>ct','<plug>NERDCommenterToggle<CR>')
 
 --Toggle tagbar
 map('n','<C-t>',':TagbarToggle<CR>',{silent = true})
@@ -50,14 +46,11 @@ map('n','<A-q>','<C-w>q',{noremap = true})
 map('n','j','gj',{noremap = true})
 map('n','k','gk',{noremap = true})
 
--- FZF
--- map('n','<leader>p',':Files<CR>',{noremap = true,silent = true})
--- map('n','<leader>b',':Buffers<CR>',{noremap = true,silent = true})
--- map('n','<leader>lg',':Rg<CR>',{noremap = true,silent = true})
-
 -- Telescope
--- //TODO
 map('n','<leader>ff','<cmd>Telescope find_files<cr>',{noremap = true})
 map('n','<leader>fg','<cmd>Telescope live_grep<cr>',{noremap = true})
 map('n','<leader>fb','<cmd>Telescope buffers<cr>',{noremap = true})
 map('n','<leader>fh','<cmd>Telescope help_tags<cr>',{noremap = true})
+
+-- Undotree
+map('n','<leader>ut','<cmd>UndotreeToggle<cr>',{noremap = true})
