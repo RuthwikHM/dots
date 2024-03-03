@@ -74,4 +74,5 @@ return require('packer').startup(function()
     -- Colorschemes
     use {'gruvbox-community/gruvbox', as='gruvbox'}
     use {'dracula/vim', as='dracula'}
+    use {'folke/tokyonight.nvim'}
 end)

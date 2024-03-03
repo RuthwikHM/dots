@@ -34,8 +34,14 @@ opt.shiftwidth = 4
 opt.wmh = 0
 -- opt.foldmethod = 'expr'
 
---Colorscheme
-cmd 'colorscheme dracula'
 --Gruvbox
--- g.gruvbox_contrast_dark = 'soft'
--- g.gruvbox_italic = 1
+g.gruvbox_contrast_dark = 'hard'
+g.gruvbox_italic = 1
+
+-- Tokyo Night
+-- require('tokyonight').setup({
+--     style = 'night'
+-- })
+
+--Colorscheme
+cmd 'colorscheme gruvbox'

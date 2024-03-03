@@ -16,56 +16,77 @@ Xft.lcdfilter: lcddefault
 
 ! st config
 ! Dracula Xresources palette
-st.foreground: #F8F8F2
-st.background: #282A36
-st.color0:     #000000
-st.color8:     #4D4D4D
-st.color1:     #FF5555
-st.color9:     #FF6E67
-st.color2:     #50FA7B
-st.color10:    #5AF78E
-st.color3:     #F1FA8C
-st.color11:    #F4F99D
-st.color4:     #BD93F9
-st.color12:    #CAA9FA
-st.color5:     #FF79C6
-st.color13:    #FF92D0
-st.color6:     #8BE9FD
-st.color14:    #9AEDFE
-st.color7:     #BFBFBF
-st.color15:    #E6E6E6
+! st.foreground: #F8F8F2
+! st.background: #282A36
+! st.color0:     #000000
+! st.color8:     #4D4D4D
+! st.color1:     #FF5555
+! st.color9:     #FF6E67
+! st.color2:     #50FA7B
+! st.color10:    #5AF78E
+! st.color3:     #F1FA8C
+! st.color11:    #F4F99D
+! st.color4:     #BD93F9
+! st.color12:    #CAA9FA
+! st.color5:     #FF79C6
+! st.color13:    #FF92D0
+! st.color6:     #8BE9FD
+! st.color14:    #9AEDFE
+! st.color7:     #BFBFBF
+! st.color15:    #E6E6E6
 
 ! Gruvbox Palette
-! ! hard contrast:
-! st.background: #1d2021
-! ! ! st.background: #282828
-! ! ! ! soft contrast: st.background: #32302f
-! st.foreground: #ebdbb2
-! ! Black + DarkGrey
-! st.color0:  #282828
-! st.color8:  #928374
-! ! DarkRed + Red
-! st.color1:  #cc241d
-! st.color9:  #fb4934
-! ! DarkGreen + Green
-! st.color2:  #98971a
-! st.color10: #b8bb26
-! ! DarkYellow + Yellow
-! st.color3:  #d79921
-! st.color11: #fabd2f
-! ! DarkBlue + Blue
-! st.color4:  #458588
-! st.color12: #83a598
-! ! DarkMagenta + Magenta
-! st.color5:  #b16286
-! st.color13: #d3869b
-! ! DarkCyan + Cyan
-! st.color6:  #689d6a
-! st.color14: #8ec07c
-! ! LightGrey + White
-! st.color7:  #a89984
-! st.color15: #ebdbb2
-st.font:FiraCode Nerd Font Mono:style=Medium,Regular:size=13
+! hard contrast:
+st.background: #1d2021
+! st.background: #282828
+! soft contrast: st.background: #32302f
+st.foreground: #ebdbb2
+! Black + DarkGrey
+st.color0:  #282828
+st.color8:  #928374
+! DarkRed + Red
+st.color1:  #cc241d
+st.color9:  #fb4934
+! DarkGreen + Green
+st.color2:  #98971a
+st.color10: #b8bb26
+! DarkYellow + Yellow
+st.color3:  #d79921
+st.color11: #fabd2f
+! DarkBlue + Blue
+st.color4:  #458588
+st.color12: #83a598
+! DarkMagenta + Magenta
+st.color5:  #b16286
+st.color13: #d3869b
+! DarkCyan + Cyan
+st.color6:  #689d6a
+st.color14: #8ec07c
+! LightGrey + White
+st.color7:  #a89984
+st.color15: #ebdbb2
+
+! Tokyonight Night
+! st.background: #1a1b26
+! st.foreground: #c0caf5
+! st.color0: #15161e
+! st.color1: #f7768e
+! st.color2: #9ece6a
+! st.color3: #e0af68
+! st.color4: #7aa2f7
+! st.color5: #bb9af7
+! st.color6: #7dcfff
+! st.color7: #a9b1d6
+! st.color8: #414868
+! st.color9: #f7768e
+! st.color10: #9ece6a
+! st.color11: #e0af68
+! st.color12: #7aa2f7
+! st.color13: #bb9af7
+! st.color14: #7dcfff
+! st.color15: #c0caf5
+
+st.font:FiraCode Nerd Font Mono:style=Medium,Regular:size=14
 st.alpha:1.0
 
 URxvt.foreground: #F8F8F2

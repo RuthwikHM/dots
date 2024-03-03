@@ -1,32 +1,47 @@
 local gl = require('galaxyline')
 -- local colors = require('galaxyline.theme').default
 -- Dracula
-local colors = {
-    bg = '#282A36',
-    fg = '#F8F8F2',
-    yellow = '#F1FA8C',
-    cyan = '#8BE9Fd',
-    darkblue = '#6272A4',
-    green = '#50FA7B',
-    orange = '#FFB86C',
-    violet = '#BD93F9',
-    magenta = '#FF79C6',
-    blue = '#8BE9FD',
-    red = '#FF5555'
-}
--- -- Gruvbox
 -- local colors = {
---     bg = '#1D2021',
---     fg = '#EBDBB2',
---     yellow = '#FABD2F',
---     cyan = '#83A598',
---     darkblue = '#458588',
---     green = '#B8BB26',
---     orange = '#FE8019',
---     violet = '#D3869B',
---     magenta = '#B16286',
---     blue = '#83A598',
---     red = '#FB4934'
+--     bg = '#282A36',
+--     fg = '#F8F8F2',
+--     yellow = '#F1FA8C',
+--     cyan = '#8BE9Fd',
+--     darkblue = '#6272A4',
+--     green = '#50FA7B',
+--     orange = '#FFB86C',
+--     violet = '#BD93F9',
+--     magenta = '#FF79C6',
+--     blue = '#8BE9FD',
+--     red = '#FF5555'
+-- }
+-- Gruvbox
+local colors = {
+    bg = '#1D2021',
+    fg = '#EBDBB2',
+    yellow = '#FABD2F',
+    cyan = '#83A598',
+    darkblue = '#458588',
+    green = '#B8BB26',
+    orange = '#FE8019',
+    violet = '#D3869B',
+    magenta = '#B16286',
+    blue = '#83A598',
+    red = '#FB4934'
+}
+--
+-- Tokyo Night
+-- local colors = {
+--     bg = '#16161E',
+--     fg = '#A9B1D6',
+--     yellow = '#E0AF68',
+--     cyan = '#7DCFFF',
+--     darkblue = '#2AC3DE',
+--     green = '#9ECE6A',
+--     orange = '#FF9E64',
+--     violet = '#9D7CD8',
+--     magenta = '#BB9AF7',
+--     blue = '#7AA2F7',
+--     red = '#F7768E'
 -- }
 
 local condition = require('galaxyline.condition')
