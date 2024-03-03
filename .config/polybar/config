@@ -27,28 +27,40 @@
 ; alert = #ff5555
 
 ;Gruvbox
-xwin_underline = #83a598
-bat_foreground = #d3869b
-mem_foreground = #fe8019
-volume_foreground = #fabd2f
-dat_foreground = #fabd2f
-background=#282828
-foreground=#ebdbb2
-primary=#b8bb26
-secondary=#fabd2f
-alert=#fb4934
+; xwin_underline = #83a598
+; bat_foreground = #d3869b
+; mem_foreground = #fe8019
+; volume_foreground = #fabd2f
+; dat_foreground = #fabd2f
+; background=#282828
+; foreground=#ebdbb2
+; primary=#b8bb26
+; secondary=#fabd2f
+; alert=#fb4934
 
-;Dracula
-; xwin_underline = #8be9fd
-; bat_foreground = #bd93f9
-; mem_foreground = #ffb86c
-; volume_foreground = #f1fa8c
-; dat_foreground = #6272a4
-; background=#282a36
-; foreground=#f8f8f2
-; primary=#50fa7b
-; secondary=#f1fa8c
-; alert=#ff5555
+; Dracula
+# xwin_underline = #8be9fd
+# bat_foreground = #bd93f9
+# mem_foreground = #ffb86c
+# volume_foreground = #f1fa8c
+# dat_foreground = #6272a4
+# background=#282a36
+# foreground=#f8f8f2
+# primary=#50fa7b
+# secondary=#f1fa8c
+# alert=#ff5555
+
+;Tokyo night
+xwin_underline = #2ac3de
+bat_foreground = #9aa5ce
+mem_foreground = #ff9e64
+volume_foreground = #a9b1d6
+dat_foreground = #f8f8f2
+background=#1a1b26
+foreground=#f8f8f2
+primary=#7aa2f7
+secondary=#414868
+alert=#f7768e
 
 background-alt = #4e4e4e
 foreground-alt = #4e4e4e
