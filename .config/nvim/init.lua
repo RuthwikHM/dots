@@ -291,6 +291,31 @@ require('lazy').setup {
         topdelete = { text = '‾' },
         changedelete = { text = '`' },
       },
+      current_line_blame = true,
+      on_attach = function(bufnr)
+        local gs = require 'gitsigns'
+        vim.keymap.set('n', ']h', gs.next_hunk, { desc = 'Next [H]unk' })
+        vim.keymap.set('n', '[h', gs.prev_hunk, { desc = 'Previous [H]unk' })
+        vim.keymap.set('n', '<leader>hs', gs.stage_hunk, { desc = '[H]unk [S]tage' })
+        vim.keymap.set('n', '<leader>hr', gs.reset_hunk, { desc = '[Hunk] [R]eset' })
+        vim.keymap.set('v', '<leader>hs', function()
+          gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
+        end, { desc = '[H]unk [S]tage' })
+        vim.keymap.set('v', '<leader>hr', function()
+          gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
+        end, { desc = '[Hunk] [R]eset' })
+        vim.keymap.set('n', '<leader>hS', gs.stage_buffer, { desc = '[Hunk] [S]tage Buffer' })
+        vim.keymap.set('n', '<leader>hu', gs.undo_stage_hunk, { desc = '[H]unk [U]ndo Stage' })
+        vim.keymap.set('n', '<leader>hR', gs.reset_buffer, { desc = '[H]unk [R]eset Buffer' })
+        vim.keymap.set('n', '<leader>hp', gs.preview_hunk, { desc = '[H]unk [Preview]' })
+        vim.keymap.set('n', '<leader>hd', gs.diffthis, { desc = '[H]unk [D]iff' })
+        vim.keymap.set('n', '<leader>hD', function()
+          local relativeTo = vim.fn.input 'Relative to: ' or '~'
+          gs.diffthis(relativeTo)
+        end, { desc = '[H]unk [D]iff Relative' })
+        vim.keymap.set('n', '<leader>td', gs.toggle_deleted, { desc = 'Hunk [T]oggle [D]eleted' })
+        vim.keymap.set({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+      end,
     },
   },
 
@@ -527,7 +552,10 @@ require('lazy').setup {
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+          vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'LSP: [C]ode [A]ction' })
+
+          -- Formatting buffer via the LSP
+          vim.keymap.set({ 'n', 'v' }, '<leader>cf', vim.lsp.buf.format, { buffer = event.buf, desc = 'LSP: [C]ode [F]ormat' })
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap
@@ -628,7 +656,9 @@ require('lazy').setup {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format lua code
+        'stylua',
+        'prettierd',
+        'prettier', -- Used to format lua and javascript code
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -653,7 +683,7 @@ require('lazy').setup {
       notify_on_error = false,
       format_on_save = {
         timeout_ms = 500,
-        lsp_fallback = true,
+        lsp_fallback = false,
       },
       formatters_by_ft = {
         lua = { 'stylua' },
@@ -662,7 +692,8 @@ require('lazy').setup {
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        -- javascript = { { "prettierd", "prettier" } },
+        javascript = { { 'prettierd', 'prettier' } },
+        -- java = { 'google-java-format' },
       },
     },
   },
@@ -887,7 +918,6 @@ require('lazy').setup {
     end,
   },
   { 'jiangmiao/auto-pairs' },
-  { 'tpope/vim-fugitive' },
   { 'tpope/vim-unimpaired' },
   {
     'nvim-tree/nvim-tree.lua',
@@ -931,7 +961,7 @@ require('lazy').setup {
     config = function()
       require('auto-session').setup {
         log_level = 'error',
-        auto_session_suppress_dirs = { '~/', '/' },
+        auto_session_suppress_dirs = { '~/', '/', '~/.config/nvim' },
         auto_session_use_git_branch = true,
         session_lens = {
           -- If load_on_setup is set to false, one needs to eventually call `require("auto-session").setup_session_lens()` if they want to use session-lens.
@@ -942,6 +972,24 @@ require('lazy').setup {
         },
       }
       vim.keymap.set('n', '<leader>ss', require('auto-session.session-lens').search_session, { desc = '[S]witch [Sessions]' })
+    end,
+  },
+  {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- required
+      'sindrets/diffview.nvim', -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      'nvim-telescope/telescope.nvim', -- optional
+    },
+    config = function()
+      local neogit = require 'neogit'
+      local open_neogit = function()
+        neogit.open { kind = 'auto' }
+      end
+      require('neogit').setup {}
+      vim.keymap.set('n', '<leader>go', open_neogit, { desc = '[G]it [Open]' })
     end,
   },
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
