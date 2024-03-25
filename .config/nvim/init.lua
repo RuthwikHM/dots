@@ -622,7 +622,7 @@ require('lazy').setup({
         gopls = {},
         -- jdtls = {},
         -- pyright = {},
-        -- rust_analyzer = {},
+        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -703,6 +703,7 @@ require('lazy').setup({
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         -- javascript = { { 'prettierd', 'prettier' } },
+        rust = { 'rustfmt' },
       },
     },
   },
@@ -1003,19 +1004,19 @@ require('lazy').setup({
   {
     'rmagatti/auto-session',
     config = function()
-      -- require('auto-session').setup {
-      --   log_level = 'error',
-      --   auto_session_suppress_dirs = { '~/', '/' },
-      --   auto_session_use_git_branch = true,
-      --   session_lens = {
-      --     -- If load_on_setup is set to false, one needs to eventually call `require("auto-session").setup_session_lens()` if they want to use session-lens.
-      --     buftypes_to_ignore = {}, -- list of buffer types what should not be deleted from current session
-      --     load_on_setup = true,
-      --     theme_conf = { border = true },
-      --     previewer = false,
-      --   },
-      -- }
-      -- vim.keymap.set('n', '<leader>ss', require('auto-session.session-lens').search_session, { desc = '[S]witch [Sessions]' })
+      require('auto-session').setup {
+        log_level = 'error',
+        auto_session_suppress_dirs = { '~/', '/' },
+        auto_session_use_git_branch = true,
+        session_lens = {
+          -- If load_on_setup is set to false, one needs to eventually call `require("auto-session").setup_session_lens()` if they want to use session-lens.
+          buftypes_to_ignore = {}, -- list of buffer types what should not be deleted from current session
+          load_on_setup = true,
+          theme_conf = { border = true },
+          previewer = false,
+        },
+      }
+      vim.keymap.set('n', '<leader>ss', require('auto-session.session-lens').search_session, { desc = '[S]witch [Sessions]' })
     end,
   },
   {
@@ -1040,7 +1041,11 @@ require('lazy').setup({
     'folke/noice.nvim',
     event = 'VeryLazy',
     opts = {
-      -- add any options here
+      routes = {
+        view = 'messages',
+        filter = { event = 'lsp', ['not'] = { find = 'Starting Java Language Server' } },
+        opts = { skip = true },
+      },
     },
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
