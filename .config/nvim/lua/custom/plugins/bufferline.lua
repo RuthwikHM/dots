@@ -3,6 +3,7 @@ return {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
+      local groups = require 'bufferline.groups'
       require('bufferline').setup {
         options = {
           offsets = {
@@ -12,6 +13,21 @@ return {
               text_align = 'center',
               highlight = 'Directory',
               separator = true, -- use a "true" to enable the default, or set your own character
+            },
+          },
+          groups = {
+            options = {
+              toggle_hidden_on_enter = true, -- when you re-enter a hidden group this options re-opens that group so the buffer is visible
+            },
+            items = {
+              {
+                name = 'Terminals',
+                auto_close = true,
+                matcher = function(buf)
+                  return buf.name:match 'zsh'
+                end,
+              },
+              groups.builtin.ungrouped,
             },
           },
         },
